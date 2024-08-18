@@ -1,7 +1,8 @@
-asgiref @ file:///Users/cbousseau/work/recipes/ci_py311/asgiref_1677957028708/work
-beautifulsoup4==4.12.3
-Django @ file:///Users/cbousseau/work/recipes/ci_py311/django_1677970851911/work
-django-cotton==0.0.7
-shortuuid==1.0.13
-soupsieve==2.6
-sqlparse @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_16ptvrhamb/croot/sqlparse_1690901943673/work
+Brotli==1.1.0
+click==8.1.7
+gunicorn==23.0.0
+h11==0.14.0
+packaging==24.1
+typing_extensions==4.12.2
+uvicorn==0.30.6
+whitenoise==6.7.0
