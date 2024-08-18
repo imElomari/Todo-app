@@ -1,2 +1,0 @@
-# djangoProject
- django & htmx
