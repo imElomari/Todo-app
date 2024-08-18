@@ -1,6 +1,96 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container Styles */
+        #todo-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Styles */
+        #task-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            font-size: 16px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        /* Table Styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table thead {
+            background-color: #e9ecef;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+
     <div id="todo-container">
         <form
                 id="task-form"
@@ -17,8 +107,8 @@
             <button type="submit" class="btn btn-primary">Add</button>
         </form>
 
-            <table class="table">
-            <thead class="table-light">
+        <table class="table">
+            <thead>
             <tr>
                 <th>Task Name</th>
                 <th>Description</th>
@@ -32,23 +122,23 @@
                     <td>{{ task.description }}</td>
                     <td>
                         <c-button class="btn btn-secondary"
-                                hx-get="{% url 'append-to-form' task.id %}"
-                                hx-trigger="click"
-                                hx-target="#task-form"
-                                hx-swap="innerHTML"
+                                  hx-get="{% url 'append-to-form' task.id %}"
+                                  hx-trigger="click"
+                                  hx-target="#task-form"
+                                  hx-swap="innerHTML"
                         >Edit</c-button>
-                        
+
                         <c-button class="btn btn-danger"
-                                hx-delete="{% url 'delete-task' task.id %}"
-                                hx-target="#todo-container"
-                                hx-swap="outerHTML"
-                                hx-confirm="Are you sure you want to delete '{{ task.name }}'?"
+                                  hx-delete="{% url 'delete-task' task.id %}"
+                                  hx-target="#todo-container"
+                                  hx-swap="outerHTML"
+                                  hx-confirm="Are you sure you want to delete '{{ task.name }}'?"
                         >Delete</c-button>
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
-        </div>
+    </div>
 
 {% endblock content %}
